@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.financemanager.dao.FamilyMapper">
+	<resultMap type="com.financemanager.po.Family" id="familyResultMap">
+        <id column="fid" property="fid" />
+        <result column="name" property="name" />
+        <result column="createtime" property="createTime" javaType="java.util.Date"  />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <select id="selectFimaly" parameterType="java.util.HashMap" resultMap="familyResultMap">
+        select fid, name, createtime, remark from family 
+        <where>
+        	<if test="fid!=null">
+        		and fid=#{fid}
+        	</if>
+        </where>
+    </select>
+    
+    <insert id="addFamily" parameterType="com.financemanager.po.Family" useGeneratedKeys="true" keyProperty="uid">
+        insert into family (name, createtime, remark) values(#{name}, #{createTime}, #{remark})
+        
+    </insert>
+    
+    <update id="updateFamily"  parameterType="com.financemanager.po.Family">
+        update family set name=#{name}, remark=#{remark} where fid=#{fid}
+    </update>
+    
+</mapper>
