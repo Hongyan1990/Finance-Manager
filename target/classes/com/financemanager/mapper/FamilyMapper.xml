@@ -8,6 +8,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="name" property="name" />
         <result column="createtime" property="createTime" javaType="java.util.Date"  />
         <result column="remark" property="remark" />
+        <collection property="members" ofType="java.util.HashMap" select="queryMembers" column="fid" />
+    </resultMap>
+    
+    <resultMap type="java.util.HashMap" id="membersResultMap" >
+    	<id column="mid" property="mid" />
+    	<result column="uid" property="uid" />
+    	<result column="uname" property="uname" />
     </resultMap>
 
     <select id="selectFimaly" parameterType="java.util.HashMap" resultMap="familyResultMap">
@@ -19,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
-    <insert id="addFamily" parameterType="com.financemanager.po.Family" useGeneratedKeys="true" keyProperty="uid">
+    <insert id="addFamily" parameterType="com.financemanager.po.Family" useGeneratedKeys="true" keyProperty="fid">
         insert into family (name, createtime, remark) values(#{name}, #{createTime}, #{remark})
         
     </insert>
@@ -27,5 +34,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateFamily"  parameterType="com.financemanager.po.Family">
         update family set name=#{name}, remark=#{remark} where fid=#{fid}
     </update>
+    
+    <select id="queryMembers" parameterType="int" resultMap="membersResultMap"  >
+    	select
+    		m.mid,
+    		m.uid,
+    		u.uname
+    	from
+    		members m left outer join user u on m.uid=u.uid
+    	where m.fid=#{fid}
+    </select>
+    
+    <insert id="addMember" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="mid">
+    	insert into members (fid, uid) values(#{fid}, #{uid})
+    </insert>
+    
+    <delete id="removeMember"  parameterType="java.util.HashMap">
+    	delete from members where fid=#{fid} and uid=#{uid}
+    </delete>
     
 </mapper>

@@ -8,13 +8,17 @@ E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\po\BaseMod
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\po\OrderModel.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\Impl\BookServiceImpl.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\Impl\UserServiceImpl.java
+E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\ManagerService.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\Impl\OrderServiceImpl.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\BatchService.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\BookService.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\dao\BookMapper.java
+E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\po\ManagerModel.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\OrderService.java
+E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\controller\ManagerController.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\po\BookTypeInfo.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\po\UserInfo.java
+E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\dao\ManagerMapper.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\controller\FamilyController.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\po\ResBaseModel.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\interceptor\LoginInterceptor.java
@@ -29,4 +33,5 @@ E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\dao\UserIn
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\dao\BatchMapper.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\db\DBConnectionTest.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\Impl\BatchServiceImpl.java
+E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\service\Impl\ManagerServiceImpl.java
 E:\eclipse-workspace\Finance-Manager\src\main\java\com\financemanager\controller\OrderController.java

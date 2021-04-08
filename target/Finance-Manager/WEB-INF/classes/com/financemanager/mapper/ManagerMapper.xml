@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.financemanager.dao.ManagerMapper">
+	<insert id="addManager" parameterType="ManagerModel" useGeneratedKeys="true" keyProperty="id">
+        insert into manager (
+        	uid, fid, tp, amount, createtime, updatetime, paytype, detail, remark
+        ) values(#{uid}, #{fid}, #{tp}, #{amount}, #{createTime}, #{updateTime}, #{payType}, #{detail}, #{remark})
+    </insert>
+    <resultMap type="ManagerModel" id="managerResultMap">
+    	<id column="id" property="id" />
+    	<result column="uid" property="uid" />
+    	<result column="fid" property="fid" />
+    	<result column="tp" property="tp" />
+    	<result column="amount" property="amount" />
+    	<result column="createtime" property="createTime" javaType="java.util.Date" />
+    	<result column="updatetime" property="updateTime" javaType="java.util.Date" />
+    	<result column="paytype" property="payType" />
+    	<result column="detail" property="detail" />
+    	<result column="remark" property="remark" />
+    	<association property="user" javaType="java.util.HashMap" >
+            <id column="uid" property="uid" />
+            <result column="uname" property="uname" />
+        </association>
+        <association property="family" javaType="java.util.HashMap" >
+            <id column="fid" property="fid" />
+            <result column="name" property="name" />
+        </association>
+    </resultMap>
+    
+    <select id="queryManagerById" parameterType="int" resultMap="managerResultMap">
+        select 
+        	m.id,
+        	m.uid,
+        	m.fid,
+        	m.tp,
+        	m.amount,
+        	m.createtime,
+        	m.updatetime,
+        	m.paytype,
+        	m.detail,
+        	m.remark,
+        	u.uname,
+        	f.name
+        from
+        	manager m left outer join user u on m.uid=u.uid
+        	right join family f on m.fid=f.fid
+        where
+        	m.id=#{id}
+    </select>
+    <select id="queryManagers" parameterType="BaseModel" resultMap="managerResultMap">
+        select 
+        	m.id,
+        	m.uid,
+        	m.fid,
+        	m.tp,
+        	m.amount,
+        	m.createtime,
+        	m.updatetime,
+        	m.paytype,
+        	m.detail,
+        	m.remark,
+        	u.uname,
+        	f.name
+        from
+        	manager m left outer join user u on m.uid=u.uid
+        	right join family f on m.fid=f.fid
+        <where>
+        	<if test="fid!=null">
+        		and m.fid=#{fid}
+        	</if>
+        	<if test="uid!=null">
+        		and m.uid=#{uid}
+        	</if>
+        	<if test="pageNo!=null">
+        	   and m.id in (select bb.id from (SELECT manager.id from manager LIMIT #{startNum}, #{pageSize}) as bb)
+        	</if>
+        </where>
+    </select>
+    <select id="queryManagerCount" parameterType="BaseModel" resultType="Integer">
+        select 
+		    COUNT(*) as num
+		from
+		    manager
+	    <where>
+           <if test="fid!=null">
+               and fid=#{fid}
+           </if>
+           <if test="uid!=null">
+        		and uid=#{uid}
+        	</if>
+         </where>
+    </select>
+    <update id="updateManager"  parameterType="ManagerModel">
+        update manager set amount=#{amount}, updatetime=#{updateTime}, detail=#{detail}, remark=#{remark}  where id=#{id}
+    </update>
+</mapper>

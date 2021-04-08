@@ -31,4 +31,12 @@ public class FamilyServiceImpl implements FamilyService {
 
 	}
 
+	public int addMember(Map<String, Object> member) {
+		return familyMapper.addMember(member);
+	}
+
+	public void removeMember(Map<String, Object> member) {
+		familyMapper.removeMember(member);
+		
+	}
 }

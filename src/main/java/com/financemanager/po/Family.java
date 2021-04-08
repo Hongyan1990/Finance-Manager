@@ -1,12 +1,15 @@
 package com.financemanager.po;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class Family {
 	private int fid;
 	private String name;
 	private Date createTime;
 	private String remark;
+	private List<Map<String, Object>> members;
 	
 	public int getFid() {
 		return fid;
@@ -31,6 +34,12 @@ public class Family {
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	public List<Map<String, Object>> getMembers() {
+		return members;
+	}
+	public void setMembers(List<Map<String, Object>> members) {
+		this.members = members;
 	}
 	
 	

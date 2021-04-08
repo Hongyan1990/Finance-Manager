@@ -48,4 +48,22 @@ public class FamilyController {
 		map.put("fid", family.getFid());
 		return map;
 	}
+	
+	@RequestMapping(value="/member", method= {RequestMethod.POST} )
+	@ResponseBody
+	public Map<String, Integer> addMember(Model model, @RequestBody Map<String, Object> member) {
+		int mid = familyService.addMember(member);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("mid", mid);
+		return map;
+	}
+	
+	@RequestMapping(value="/member", method= {RequestMethod.DELETE} )
+	@ResponseBody
+	public Map<String, String> removeMember(Model model, @RequestBody Map<String, Object> member) {
+		familyService.removeMember(member);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("mid", "SUCCESS");
+		return map;
+	}
 }

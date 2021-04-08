@@ -39,13 +39,12 @@ public class BookController {
 		return book;
 	}
 	// 查询所有图书
-	@RequestMapping(value="/books", method= {RequestMethod.GET})
-	@ResponseBody
-	public ResBaseModel queryBooks(@ModelAttribute("param") BaseModel param) {
-		System.out.println("cId="+ param.getcId() + ", pageNo=" + param.getPageNo() + ", pageSize=" + param.getPageSize() + ", pageStart="+param.getStartNum());
-		ResBaseModel res = bookService.queryBooks(param);
-		return res;
-	}
+//	@RequestMapping(value="/books", method= {RequestMethod.GET})
+//	@ResponseBody
+//	public ResBaseModel queryBooks(@ModelAttribute("param") BaseModel param) {
+//		ResBaseModel res = bookService.queryBooks(param);
+//		return res;
+//	}
 	// 根据类别查询图书
 //	@RequestMapping(value="/books/{cid}", method= {RequestMethod.GET})
 //	@ResponseBody

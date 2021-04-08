@@ -1,35 +1,42 @@
 package com.financemanager.po;
 
 public class BaseModel {
-	private int cId;
-	private int pageNo = 0;
-	private int pageSize = 10;
-	private int startNum = 0;
-	
-	public int getcId() {
-		return cId;
+	private Integer fid;
+	private Integer uid;
+	private Integer pageNo = 0;
+	private Integer pageSize = 10;
+	private Integer startNum = 0;
+	public Integer getFid() {
+		return fid;
 	}
-	public void setcId(int cId) {
-		this.cId = cId;
+	public void setFid(Integer fid) {
+		this.fid = fid;
 	}
-	public int getPageNo() {
-		return pageNo ;
+	public Integer getUid() {
+		return uid;
 	}
-	public void setPageNo(int pageNo) {
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+	public Integer getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(Integer pageNo) {
 		this.pageNo = pageNo;
 	}
-	public int getPageSize() {
+	public Integer getPageSize() {
 		return pageSize;
 	}
-	public void setPageSize(int pageSize) {
+	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
-	public int getStartNum() {
+	public Integer getStartNum() {
 		return startNum;
 	}
-	public void setStartNum(int startNum) {
+	public void setStartNum(Integer startNum) {
 		this.startNum = startNum;
 	}
+	
 	
 	
 }

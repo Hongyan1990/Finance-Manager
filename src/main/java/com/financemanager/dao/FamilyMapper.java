@@ -11,4 +11,8 @@ public interface FamilyMapper {
 	int addFamily(Family family);
 	
 	void updateFamily(Family family);
+	
+	int addMember(Map<String, Object> member);
+	
+	void removeMember(Map<String, Object> member);
 }
